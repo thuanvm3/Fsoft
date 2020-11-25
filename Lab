@@ -1,0 +1,209 @@
+	Project Code:		"YES"	9		
+	Reviewer(s):		"NO"	0		
+	Version of the work product:		"N/A"	0		
+	Review date:					
+	Work product' size:					
+	Effort spent on audit (person-hour):					
+#REF!						
+No	Checked Items		Assessment	Notes	Priority	Reference
+1. Java Introduction						
+	Introduction to Java					
+1	Hiểu khái niệm JMV?		Yes	" JVM - Java Vitrual Machine
+-  là một máy ảo, cung cấp môi trường để thực thi các mã bytecode (các file có phần mở rộng là .class) .
+-  Nhiệm vụ của JVM :
+   + Loads code 
+   + Kiểm tra các mã code (Verifies code)
+   + Thực thi code (Executes code):  chuyển đổi Java Bytecode thành ngôn ngữ máy tính hiểu được.
+   + Cung cấp môi trường runtime (Provides runtime environment)
+"	Mandatory	
+2	So sánh giữa JRE và JDK?		Yes	"1. JRE - Java Runtime Environment
+- Cung cấp môi trường chạy cho các chương trình trình java.
+- JRE = JVM + các thư viện java (Java Class Libraries)
+
+2. JDK - Java Development Kit
+- JDK = JRE + các tool phát triển (development tool)"	Mandatory	
+3	Hiểu cơ chế biên dịch và thông dịch chương trình java?		Yes	"1. Biên dịch (Compiled)
+    -  file .java --> file .class (mã bytecode)
+
+2. Thông dịch (Interpreted)
+    - File .class(mã bytecode) --> mã máy (mã mà các hệ điều hành(như IOS, Windown,..) có thể hiểu và thực thi yêu cầu)"	Mandatory	
+	Basic Java Syntax					
+4	Quy tắc đặt tên trong Java?		Yes	" - Tên có thể bao gồm : chữ, số, ký tự $ và ký tự gạch dưới ""_ "".
+** tên không được bắt đầu bằng số **
+ - Vd: 
+ String name_1;  => ok
+ String $name;    => ok
+ String _name;    => ok
+ String 1name;    => not ok
+Tuy nhiên, khi đặt tên chúng ta không chỉ lựa chọn tên đúng quy tắc mà còn cần lựa chọn tên hợp nghĩa (meaningfull)."	Mandatory	
+5	Nắm được quy tắc đặt tên class, variable, method (naming convention)?		Yes	"Tất cả các tên được đặt cho class, object, variable, method đều phải meaning-full và tuân theo quy tắc sau: 
+- Class: 
+  + sử dụng danh từ và tránh viết tắt.
+     [vd : Student thay vì Std] 
+  + viết hoa các chữ cái đầu (gọi là PascalCase)
+     [vd: ElectricCar thay vì electriccar ]
+- Variable : 
+   + nên bắt đầu bằng danh từ.
+   + không nên bắt đầu bằng số hoặc $ hoặc _
+   + viết theo camelCase style.
+      [vd: numberOfFiles thay vì NumberOfFiles hay numberoffiles]
+- Method:
+   + nên bắt đầu bằng động từ và theo camelCase style.
+     [vd: countNumberOfFiles() thay vì Files() hay CountNumberOfFiles()]"	Mandatory	
+6	Hiểu được ý nghĩa của hàm main và cấu trúc của hàm main?		Yes	" - Cấu trúc hàm main().
+   public static void main(String[] args) {
+      //code xử lý
+   } 
+- Nghiệp vụ: là hàm sẽ được gọi bởi JVM để start một chương trình Java."	Mandatory	
+7	Nắm được các cậu lệnh compile và run một chương trình Java.		Yes	"- Câu lệnh compile từ file .java -> file .class. Tại cửa sổ cmd gõ:
+javac <tên file>.java
+
+VD: javac HelloWorld.java
+
+- Câu lệnh run:
+java <tên file> 
+VD: java HelloWorld
+  hoặc
+java <tên file> <các giá trị tham số đầu vào>
+VD:java HelloWorld ""value 1"" value2"	Mandatory	
+8	Các loại code comment trong Java và cách dùng?		Yes	"- Comment: là một đoạn chú thích được thêm vào trên các đoạn code để giải thích cho đoạn code đó.
+- Các loại comment:
+  + Multi-line :  sử dụng để giải thích cho một khối code. 
+   /*
+    * Thực hiện in ra các số chẵn trong khoảng 0 -> 10
+    */
+    for(int i =0; i<=10; i++){
+        if( i % 2 ==0){
+          System.out.println(i);
+        }
+    }
+   
+  + Single line : sử dụng để giải thích cho một dòng code.
+     int age = 10;  // khởi tạo giá trị cho biến age bằng 10
+  + Special comment: sử dụng để giải thích cho một method, hoặc một class. [sử dụng cho javadocs]
+   /**
+    * Method thực hiện start chương trình.
+    */
+    public static void main(String[] args){
+        System.out.println(""Hello World"");
+    }"		
+	Basic Data Types					
+9	Nắm được về các kiểu nguyên thủy trong Java (Primitive Data Types)?		Yes	"Có 8 kiểu dữ liệu nguyên thủy được sử dụng trong java:
+'- byte : 8bit [-128 --> 127] - giá trị default [0]
+  vd: byte b = 10;    =>ok
+       byte b1 = 128; => not ok
+- short : 16bit (có lấy phần số âm -32,768 --> 32,767) - giá trị default [0]
+   vd: short s = 10;
+        short s1 = -10;
+- char : 16bit (không lấy phần âm : 0 -->65,535)
+           - giá trị default '\u0000'
+   vd: char c = 'c';  => ok
+- int : 32bit  - giá trị default [0]
+   vd: int i = 100; 
+- long: 64bit  - giá trị default [0]
+   vd: long l = 100L; 
+- float : 32bit - giá trị default [0.0]
+  vd: float f = 10.1f;   => ok
+       float f1 = 10.1;  => not ok
+- double : 32bit  - giá trị default [0.0]
+  vd: double d = 10.1d;
+- boolean: true hoặc false - giá trị default [false]
+  vd: boolean b = true;
+       boolean b1 = false;"	Mandatory	
+	Operators					
+10	Hiểu các toán tử (toán tử gán, so sánh) trong Java?		Yes	"- Toán tử gán [ = ]: dùng đề gán giá trị cho một hoặc nhiều biến. 
+  vd: int number = 10;
+       int number1 = number;
+- Toán tử so sánh : 
+  + So sánh bằng [ == ]
+       vd: int i=10; int j=10; int z=20;
+             i == j  => true (10 ==10)
+             i == z => false (10 == 20)
+  + So sánh không bằng/so sánh khác [ != ]
+     vd: int i=10; int j=10; int z=20;
+             i != j  => false(vì i,j có giá trị bằng nhau)
+             i != z => true (10 không bằng 20)
+  + So sánh lớn hơn [ > ]
+     vd: int i=10; int j=5; int z=20;
+             i > j  => true
+             i > z => false 
+  + So sánh lớn hơn hoặc bằng [>=]
+    vd: int i=10; int j=10; int z=20;
+             i >= j  => true
+             z >= i   => true
+             i >= z  => false 
+  + So sánh nhỏ hơn [ < ]
+     vd: int i=10; int j=5; int z=20;
+             i < j  => false
+             j < z => true
+  + So sánh nhỏ hơn hoặc bằng [<=]
+      vd: int i=10; int j=5; int z=10;
+             j <=  i  => true
+             i <= z  => true"	Mandatory	
+11	Hiểu toán tử số học trong Java?		Yes	"- Phép công, trừ [ +, -]
+   vd: int a =10; int b =10;
+        int c = a + b; => c có giá trị là 10 + 10 =20.
+        int d = a - b;  => c có giá trị là 10 - 10 =0.
+- Phép nhân [ * ]
+   vd: int a =10; int b =10;
+        int c = a*b; => c có giá trị là 10 x 10 =100.
+- Phép chia [ / ]
+   vd: int a =10; int b =10;
+        int c = a/b; => c có giá trị là 10:10 =1.
+- Phép chia lấy phần dư [ % ]
+     vd: int a =5; int b =3;
+          int c = a%b; => c có giá trị là 2, vì 5:3=1 dư 2."	Mandatory	
+12	Hiểu về các toán tử Unary trong Java?		Yes	"-  Biểu diễn giá trị số âm, số dương [ + , - ]
+   Vd: int a = -10; int b = +10;
+- Toán tử tăng [++] : sẽ tự động cộng thêm 1 vào giá trị hiện tại.
+  Vd: int a=10;
+        ++a;  => a = 11 
+- Toán tử giảm [ -- ] :sẽ tự động trừ đi 1 vào giá trị hiện tại.
+ Vd: int a=10;
+        --a;  => a = 9
+- Toán tử phủ định [ ! ]: chỉ dùng cho các giá trị boolean.
+  Vd: boolean a=true;
+        boolean b = !a;  => a =true và b = false."	Mandatory	
+13	Hiểu về sự khác nhau giữa ++a và a++?		Yes	"Ví dụ: ta có int a = 10;
+Ta viết: int b = a++; --> b sẽ được gán giá trị bằng a, tức là b = 10, sau đó mới tăng giá trị a = 11.
+Nhưng nếu ta viết: int b = ++a; --> a sẽ được tăng giá trị lên là 11 rồi mới gán cho b. Như vậy a=b=11."	Mandatory	
+14	Hiểu về toán tử logic (logical operator)?		Yes	"Các toán tử logic chỉ làm việc với kiểu dữ liệu boolean
+- Conditional-AND( && ) 
+       true && true   => true
+       true && false  => false
+       false && false => false
+  Vd:  int a =10, b=9, c=20;
+    boolean check = a >b && a > c; => check = false
+    boolean check1 = a>b && a <c;  => check1 = true
+
+- Conditional-OR ( || )
+       true || true   => true
+       true || false  => true
+       false || false => false
+ Vd:  int a =10, b=9, c=20;
+    boolean check = a > b || a > c; => check = true
+    boolean check1 = a<b || a >c;  => check1 = false
+
+- Ternary ( <điều kiện>? <kết quả 1> :<kết quả 2> ) : là một mẫu viết tắt của câu lênh if-else.
+ Vd: int a =10, b=9;
+       int number1 = (a > b) ? a : b;  => number1 = 10;
+       int number2 = (a < b) ? a : b;  => number2 = 9;
+"	Mandatory	
+15	Hiểu về sự khác nhau giữa && và &; giữa II và I?		Yes	"&: kiểm tra cả 2 biểu thức logic.
+&&: trong trường hợp biểu thức logic thứ nhất là sai, biểu thức thứ 2 không được thực thi. Kết quả trả về false luôn.
+Vd: int a = 10, b = 20;
+if((a>b) & (a>0)){}--> kiểm tra cả a > 0
+if((a>b) && (a>0)){}--> vì a>b là false, nên không kiểm tra a>0 hay không
+
+I: kiểm tra cả 2 biểu thức.
+II: trong t/hợp biểu thức logic thứ nhất là đúng, thì biểu thức thứ 2 không được thực thi. Kết quả trả về true luôn.
+"	Mandatory	
+	Variables and constants					
+16	Hiểu thể nào là hằng số (Constant)?		Yes	"- Hằng số (Constant) là một biến, nhưng biến đó : 
+  + Không thể hay đổi giá trị  - khi kiểu dữ liệu của hằng số là kiểu dữ liệu nguyên thủy.
+  + Không thể thay đổi references - khi kiểu dữ liệu của hằng số là kiểu Object.
+- Cú pháp khai báo một hằng số: 
+    static final datatype CONST_NAME = value;
+- VD: 
+   static final float PI = 3.14f;"	Mandatory	
+* Comments						
